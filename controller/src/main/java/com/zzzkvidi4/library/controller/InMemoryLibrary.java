@@ -70,10 +70,12 @@ public final class InMemoryLibrary implements Library {
                 .filter(s -> !s.isEmpty())
                 .collect(toSet());
         for (Author author : BOOKS.keySet()) {
-            if (terms.contains(author.getFirstName().toLowerCase())
-                    || terms.contains(author.getLastName().toLowerCase())
-                    || terms.contains(author.getMiddleName() == null ? null : author.getMiddleName().toLowerCase())) {
-                authors.add(author);
+            for (String term : terms) {
+                if (author.getFirstName().toLowerCase().contains(term)
+                        || author.getLastName().toLowerCase().contains(term)
+                        || (author.getMiddleName() != null && author.getMiddleName().toLowerCase().contains(term))) {
+                    authors.add(author);
+                }
             }
         }
 

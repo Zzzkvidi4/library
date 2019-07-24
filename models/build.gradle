@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.zzzkvidi4'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    implementation 'com.intellij:annotations:12.0'
+}
